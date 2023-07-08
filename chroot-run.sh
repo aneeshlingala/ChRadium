@@ -12,7 +12,7 @@ rm -rf /home/alarm
 
 read -p "Enter the username to add: " username
 useradd "$username"
-passwd $username
+passwd "$username"
 mkdir /home/$(echo $username)
 
 if [[ $? -eq 0 ]]; then
@@ -33,8 +33,9 @@ fi
 
 echo "$(echo $username) ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers
 
-echo "Only GDM and console display managers (ly, etc.) work."
-pacman -S gnome gdm networkmanager --noconfirm
-systemctl enable NetworkManager.service
+echo "Enter password to set for root"
+passwd
 
-echo ""
+echo "Only GDM and console display managers (ly, etc.) work."
+pacman -S gnome gdm networkmanager firefox --noconfirm
+systemctl enable NetworkManager.service
