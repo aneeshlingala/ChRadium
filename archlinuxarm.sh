@@ -42,6 +42,7 @@ fi
 
 TARGET=$(echo $2)
 FIRMWAREDIR=$PWD/firmware/*
+REPODIR=$PWD
 disk_size=$(blockdev --getsize64 "/dev/$TARGET")
 sector_size=$(blockdev --getss "/dev/$TARGET")
 total_sectors=$((disk_size / sector_size))
@@ -87,7 +88,7 @@ if [ "$1" == "--device=kukui" ]; then
     cp -r $FIRMWAREDIR /
     rm -rf /tmp/tmpmount/etc/resolv.conf
     cp /etc/resolv.conf /tmp/tmpmount/etc/
-    cp chroot-run.sh /tmp/tmpmount/
+    cp $REPODIR/chroot-run.sh /tmp/tmpmount/
     chroot /tmp/tmpmount/chroot-run.sh /bin/bash -c "su - -c /chroot-run.sh"
     echo "Successfully finished. You can now boot into the new system by inserting the drive, rebooting, and pressing CTRL+U."
  fi
