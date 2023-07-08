@@ -1,0 +1,6 @@
+highest is the highest priority
+
+1. Finish final Arch Linux ARM script
+2. Make the chroot-run.sh for running in chroot
+3. Add blendOS support
+4. Add more Chromebook support (may drop this)
