@@ -89,6 +89,6 @@ if [ "$1" == "--device=kukui" ]; then
     rm -rf /tmp/tmpmount/etc/resolv.conf
     cp /etc/resolv.conf /tmp/tmpmount/etc/
     cp $REPODIR/chroot-run.sh /tmp/tmpmount/
-    chroot /tmp/tmpmount/chroot-run.sh /bin/bash -c "su - -c /chroot-run.sh"
+    chroot /tmp/tmpmount/chroot-run.sh /bin/bash -c "bash /chroot-run.sh"
     echo "Successfully finished. You can now boot into the new system by inserting the drive, rebooting, and pressing CTRL+U."
  fi
