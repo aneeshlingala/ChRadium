@@ -57,7 +57,7 @@ if [ "$1" == "--device=kukui" ]; then
      echo "Press any key to continue..."
      read -s -n 1
      echo ""
-     echo "Pressed a key, wiping... You can now sit back and relax."
+     echo "Pressed a key, wiping..."
      echo g | fdisk /dev/$(echo $TARGET)
      cgpt create /dev/$(echo $TARGET)
      cgpt add -i 1 -t kernel -b 8192 -s 65536 -l Kernel -S 1 -T 5 -P 10 /dev/$(echo $TARGET)
