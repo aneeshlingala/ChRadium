@@ -1,4 +1,7 @@
-# Chradium
+# ChRadium
+> Note: This project is independent from blendOS.
+
+The "Ch" stands for Chlorine, used to clean up pools. This script removes chromeOS and replaces it with a clean, Arch Linux ARM or blendOS system.
 
 ## What is this?
 
