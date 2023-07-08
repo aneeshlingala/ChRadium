@@ -1,9 +1,16 @@
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.07, Pani Puri"
+echo "Release 2023.07.08, Pani Puri"
 echo ""
 
+if [[ -b "$PWD/firmware/usr/share/alsa/ucm2/mt8183_mt6358_t.readme" ]]; then
+    echo "Script is running from the root directory of the repository, continuing..."
+else
+    echo "Error: Please run this script from the ChRadium repository."
+    exit
+fi
+
 if [[ $EUID -eq 0 ]]; then
-    echo ""
+    echo "Script is being run as root, continuing..."
 else
     echo "Error: Please run this script as root!"
     echo "This is usually done with sudo or doas."
@@ -12,16 +19,18 @@ fi
 
 if [ "$2" == "" ]; then
      echo "Error: Please specify a USB, SD Card, etc. to install to (sda, sdb, etc.)."
+     exit
 fi
 
 if [[ -b "/dev/$TARGET" ]]; then
     echo "Valid device node, continuing..."
 else
-    echo "Error: Not a valid device node!"
+    echo "Error: Not a valid device node! Please make sure that the target disk is connected."
     exit
 fi
 
 TARGET=$(echo $2)
+FIRMWAREDIR=$PWD/firmware/*
 disk_size=$(blockdev --getsize64 "/dev/$TARGET")
 sector_size=$(blockdev --getss "/dev/$TARGET")
 total_sectors=$((disk_size / sector_size))
@@ -64,8 +73,10 @@ if [ "$1" == "--device=kukui" ]; then
     mount -o bind /proc /tmp/tmpmount/proc
     mount -o bind /run /tmp/tmpmount/run
     mount -o bind /sys /tmp/tmpmount/sys
+    cp -r $FIRMWAREDIR /
     rm -rf /tmp/tmpmount/etc/resolv.conf
     cp /etc/resolv.conf /tmp/tmpmount/etc/
     cp chroot-run.sh /tmp/tmpmount/
     chroot /tmp/tmpmount/chroot-run.sh /bin/bash -c "su - -c /chroot-run.sh"
+    echo "Successfully finished. You can now boot into the new system by inserting the drive, rebooting, and pressing CTRL+U."
  fi
