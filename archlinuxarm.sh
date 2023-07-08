@@ -1,6 +1,17 @@
+#!/bin/bash
+
 echo "Arch Linux ARM for unsupported Chromebooks"
 echo "Release 2023.07.08, Pani Puri"
 echo ""
+
+if ping -q -c 1 -W 1 google.com >/dev/null; then
+  echo "You are online, continuing..."
+  echo ""
+else
+  echo "Error: You are offline! Please connect to the internet."
+  echo ""
+  exit
+fi
 
 if [[ -b "$PWD/firmware/usr/share/alsa/ucm2/mt8183_mt6358_t.readme" ]]; then
     echo "Script is running from the root directory of the repository, continuing..."
