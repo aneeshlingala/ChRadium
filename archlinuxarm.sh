@@ -37,6 +37,11 @@ else
     exit
 fi
 
+if [ "$1" == "" ]; then
+     echo "Error: Please specify the model of the Chromebook (kukui, etc.)."
+     exit
+fi
+
 if [ "$2" == "" ]; then
      echo "Error: Please specify a USB, SD Card, etc. to install to (sda, sdb, etc.)."
      exit
@@ -57,8 +62,30 @@ sector_size=$(blockdev --getss "/dev/$TARGET")
 total_sectors=$((disk_size / sector_size))
 start_sector=$(cgpt show -i 1 -b "/dev/$TARGET")
 end_sector=$((total_sectors - 1))
+disk_node="$(echo $TARGET)"
+partitions=$(lsblk -l -o NAME | grep "^$disk_node")
+dev_type=$(lsblk -no TYPE "$disk_node")
+is_mounted=false
 
+while read -r partition; do
+  mountpoint=$(lsblk -l -o MOUNTPOINT "$partition" | tail -n 1)
+  if [[ -n "$mountpoint" ]]; then
+    echo "Error: Partition $partition is mounted at $mountpoint!"
+    is_mounted=true
+    exit
+  fi
+done <<< "$partitions"
 
+if [[ "$is_mounted" = false ]]; then
+  echo "No partitions are mounted on $disk_node, continuing..."
+fi
+
+if [[ $dev_type == "part" ]]; then
+  echo "Error: The target, $(echo $TARGET) is a partition."
+  exit
+else
+  echo "The specified disk is not a partition."
+fi
 
 if [ "$1" == "--device=kukui" ]; then
      echo ""
