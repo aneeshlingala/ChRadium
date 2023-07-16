@@ -4,9 +4,9 @@ echo "Arch Linux ARM for unsupported Chromebooks"
 echo "Release 2023.07.08, Pani Puri"
 echo ""
 
-architecture=$(uname -m)
+arch=$(uname -m)
 
-if [[ "$architecture" == "aarch64" ]]; then
+if [[ "$arch" == "aarch64" ]]; then
     echo "Architecture is aarch64, continuing..."
 else
     echo "Error: Please run this on an arm64 system. Instructions are in the readme."
