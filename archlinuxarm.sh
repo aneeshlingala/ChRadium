@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.18 | Currently WIP!"
+echo "Release 2023.07.18"
 echo ""
 
 arch=$(uname -m)
