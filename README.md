@@ -21,11 +21,13 @@ Then, go into the ChRadium folder with ``` cd ChRadium ```
 
 After that, run the main.sh script with root permissions.
 
-For Sudo Users: ``` sudo bash chradium.sh ```
+> Make sure to replace TARGETDRIVE with a dev node (eg. sda, sdb, mmcblk0, etc.)
 
-For Doas Users: ``` doas bash chradium.sh ```
+For Sudo Users: ``` sudo bash chradium.sh TARGETDRIVE ```
 
-For SU users: ``` su root ```, then, ``` bash chradium.sh ```
+For Doas Users: ``` doas bash chradium.sh TARGETDRIVE ```
+
+For SU users: ``` su root ```, then, ``` bash chradium.sh TARGETDRIVE ```
 
 Now, there will be a prompt to select the distro to install.
 Select your favorite distro and follow the prompts!
