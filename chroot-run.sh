@@ -36,6 +36,11 @@ echo "$(echo $username) ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers
 echo "Enter password to set for root"
 passwd
 
-echo "Only GDM and console display managers (ly, etc.) work."
-pacman -S gnome gdm networkmanager firefox --noconfirm
-systemctl enable NetworkManager.service
+read -p "Do you want to install GNOME? This is optional. " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Note: Only GDM and console display managers (ly, etc.) work."
+    pacman -S gnome gdm networkmanager firefox --noconfirm
+    systemctl enable NetworkManager.service
+fi
