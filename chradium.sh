@@ -64,7 +64,7 @@ do
             echo "Starting Debian installer..."
             bash debian.sh --device=kukui $TARGET
             ;;
-        "Option 3")
+        "Ubuntu")
             echo "Starting Ubuntu installer..."
             bash ubuntu.sh --device=kukui $TARGET
             ;;
