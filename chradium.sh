@@ -1,7 +1,7 @@
 #!/bin/bash
 
 arch=$(uname -m)
-TARGET=$2
+TARGET=$1
 
 echo "Welcome to the ChRadium Wizard!"
 echo "Note: Only MT8183 ARM Chromebooks are supported."
@@ -45,7 +45,7 @@ else
     exit
 fi
 
-if [ "$2" == "" ]; then
+if [ "$1" == "" ]; then
      echo "Error: Please specify a USB, SD Card, etc. to install to (sda, sdb, etc.)."
      exit
 fi
