@@ -1,4 +1,6 @@
-highest is the highest priority
+note: highest is the highest priority
 
-1. Add blendOS support
-2. Add more Chromebook support (may drop this)
+1. Make Debian Chroot script
+2. Add Ubuntu Support
+3. Add blendOS support
+4. Add more Chromebook support (may drop this)
