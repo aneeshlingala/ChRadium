@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.17, Pani Puri"
+echo "Release 2023.07.18 | Currently WIP!"
 echo ""
 
 arch=$(uname -m)
@@ -125,6 +125,15 @@ if [ "$1" == "--device=kukui" ]; then
     rm -rf /tmp/tmpmount/etc/resolv.conf
     cp /etc/resolv.conf /tmp/tmpmount/etc/
     cp $REPODIR/chroot-run.sh /tmp/tmpmount/
-    chroot /tmp/tmpmount/chroot-run.sh /bin/bash -c "bash /chroot-run.sh"
+    chroot /tmp/tmpmount /bin/bash -c "bash /chroot-run.sh"
+    echo "Cleaning up..."
+    rm -rf /tmp/ArchLinuxARM-aarch64-latest.tar.gz
+    rm -rf /tmp/tmpmount/chroot-run.sh
+    umount /tmp/tmpmount/dev
+    umount /tmp/tmpmount/proc
+    umount /tmp/tmpmount/run
+    umount /tmp/tmpmount/sys
+    umount /tmp/tmpmount
+    rm -rf /tmp/tmpmount
     echo "Successfully finished. You can now boot into the new system by inserting the drive, rebooting, and pressing CTRL+U."
  fi
