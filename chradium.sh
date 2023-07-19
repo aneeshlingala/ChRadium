@@ -9,8 +9,11 @@ echo ""
 echo "Tip: You can run your favorite distro's install script manually."
 echo "For example:"
 echo "ArchLinuxARM: sudo bash archlinuxarm.sh --device=kukui TARGETDRIVE"
-echo "For Debian, replace archlinuxarm.sh with debian.sh."
-echo "For Ubuntu, replace archlinuxarm.sh with ubuntu.sh"
+echo ""
+echo "Debian: sudo bash debian.sh --device=kukui TARGETDRIVE"
+echo ""
+echo "Ubuntu: sudo bash ubuntu.sh --device=kukui TARGETDRIVE"
+echo ""
 echo "Make sure to replace TARGETDRIVE with a storage medium's dev node. (eg. sda, sdb, mmcblk0, etc.)"
 sleep 10
 
