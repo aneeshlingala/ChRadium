@@ -35,7 +35,8 @@ echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
     echo "Removing Xfce..."
-    apt purge xfconf xfce4-utils xfwm4 xfce4-session xfdesktop4 exo-utils xfce4-panel xfce4-terminal thunar -y
+    systemctl disable lightdm.service
+    apt purge xfconf xfce4-utils xfwm4 xfce4-session xfdesktop4 exo-utils xfce4-panel xfce4-terminal thunar lightdm lightdm-settings -y
     apt remove xfce4* -y
     apt autoremove -y
 fi
