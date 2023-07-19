@@ -113,6 +113,6 @@ if [ "$1" == "--device=kukui" ]; then
     umount /tmp/tmpmount/sys
     umount /tmp/tmpmount
     rm -rf /tmp/tmpmount
-    echo "Script has successfully installed Debian $(echo $arch)."
+    echo "Script has successfully installed Debian."
     echo "End time: $(date)"
 fi
