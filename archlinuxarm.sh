@@ -135,5 +135,7 @@ if [ "$1" == "--device=kukui" ]; then
     umount /tmp/tmpmount/sys
     umount /tmp/tmpmount
     rm -rf /tmp/tmpmount
-    echo "Successfully finished. You can now boot into the new system by inserting the drive, rebooting, and pressing CTRL+U."
+    echo "Script has successfully installed Arch Linux ARM. You can now boot into the new system by inserting the drive into the Chromebook," 
+    echo "rebooting, and pressing CTRL+U."
+    echo "End time: $(date)"
  fi
