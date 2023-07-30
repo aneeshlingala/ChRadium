@@ -1,5 +1,3 @@
-note: highest number is the highest priority
+note: highest number is the highest priority 
 
-1. Make Debian Chroot script
-2. Add Ubuntu Support
-3. Add blendOS support
+1. Add blendOS support
