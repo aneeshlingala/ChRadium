@@ -115,5 +115,5 @@ if [ "$1" == "--device=kukui" ]; then
     rm -rf /tmp/tmpmount
     echo "Script has successfully installed Debian. You can now boot into the new system by inserting the drive into the Chromebook," 
     echo "rebooting, and pressing CTRL+U."
-    echo "End time: $($date "+%D %T")"
+    echo "End time: $($date)
 fi
