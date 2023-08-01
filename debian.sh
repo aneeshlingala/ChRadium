@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.18, Pani Puri"
+echo "Release 2023.07.31, Pani Puri"
 echo ""
 
 arch=$(uname -m)
@@ -115,5 +115,5 @@ if [ "$1" == "--device=kukui" ]; then
     rm -rf /tmp/tmpmount
     echo "Script has successfully installed Debian. You can now boot into the new system by inserting the drive into the Chromebook," 
     echo "rebooting, and pressing CTRL+U."
-    echo "End time: $(date)"
+    echo "End time: $($date "+%D %T")"
 fi
