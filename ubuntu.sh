@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.18, Pani Puri"
+echo "Release 2023.07.31, Pani Puri"
 echo ""
 
 arch=$(uname -m)
