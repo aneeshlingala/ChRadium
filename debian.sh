@@ -27,7 +27,7 @@ if [[ -f "$PWD/debian.sh" ]]; then
  else 
      echo "Error: Please run this script from the Paxxer repository." 
      exit 
- fi
+fi
 
 if [[ $EUID -eq 0 ]]; then
     echo "Script is being run as root, continuing..."
