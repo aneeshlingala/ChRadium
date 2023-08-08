@@ -22,7 +22,7 @@ else
   exit
 fi
 
-if [[ -f "$PWD/archlinuxarm.sh" ]]; then 
+if [[ -f "$PWD/ubuntu.sh" ]]; then 
      echo "Script is running from the root directory of the repository, continuing..." 
  else 
      echo "Error: Please run this script from the Paxxer repository." 
