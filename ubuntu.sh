@@ -47,19 +47,19 @@ if [ "$2" == "" ]; then
      exit
 fi
 
-if [[ -b "/dev/$TARGET" ]]; then
-    echo "Valid device node, continuing..."
-else
-    echo "Error: Not a valid device node! Please make sure that the target disk is connected."
-    exit
-fi
-
 TARGET=$(echo $2)
 REPODIR=$PWD
 disk_node="$(echo $TARGET)"
 partitions=$(lsblk -l -o NAME | grep "^$disk_node")
 dev_type=$(lsblk -no TYPE "$disk_node")
 is_mounted=false
+
+if [[ -b "/dev/$TARGET" ]]; then
+    echo "Valid device node, continuing..."
+else
+    echo "Error: Not a valid device node! Please make sure that the target disk is connected."
+    exit
+fi
 
 while read -r partition; do
   mountpoint=$(lsblk -l -o MOUNTPOINT "$partition" | tail -n 1)
