@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Arch Linux ARM for unsupported Chromebooks"
-echo "Release 2023.07.31, Pani Puri"
+echo "Release 2023.08.08, Pani Puri"
 echo ""
 
 arch=$(uname -m)
@@ -22,11 +22,11 @@ else
   exit
 fi
 
-if [[ -b "$PWD/firmware/usr/share/alsa/ucm2/mt8183_mt6358_t.readme" ]]; then
-    echo "Script is running from the root directory of the repository, continuing..."
-else
-    echo "Error: Please run this script from the ChRadium repository."
-    exit
+if [[ -f "$PWD/archlinuxarm.sh" ]]; then 
+     echo "Script is running from the root directory of the repository, continuing..." 
+ else 
+     echo "Error: Please run this script from the Paxxer repository." 
+     exit 
 fi
 
 if [[ $EUID -eq 0 ]]; then
