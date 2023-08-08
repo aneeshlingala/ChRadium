@@ -34,12 +34,12 @@ else
   exit
 fi
 
-if [[ -b "$PWD/firmware/usr/share/alsa/ucm2/mt8183_mt6358_t.readme" ]]; then
-    echo "Script is running from the root directory of the repository, continuing..."
-else
-    echo "Error: Please run this script from the ChRadium repository."
-    exit
-fi
+if [[ -f "$PWD/archlinuxarm.sh" ]]; then 
+     echo "Script is running from the root directory of the repository, continuing..." 
+ else 
+     echo "Error: Please run this script from the Paxxer repository." 
+     exit 
+ fi
 
 if [[ $EUID -eq 0 ]]; then
     echo "Script is being run as root, continuing..."
